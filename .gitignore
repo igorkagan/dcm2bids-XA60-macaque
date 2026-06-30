@@ -1,0 +1,5 @@
+*.log
+nii_out/
+tmp_*/
+studies/*.env
+!studies/*.env.example

@@ -1,0 +1,13 @@
+DAG	mac_1180	NONE	0001	#dcms: 1	20260629	093353.027000	localizer_sag+cor+tra	localizer_sag+cor+tra
+
+DAG	mac_1180	NONE	0002	#dcms: 1	20260629	094535.818000	t1_tfl3d_ns_tra_850TI_8deg_0.5mm_fatsat_psn	t1_tfl3d_ns_tra_850TI_8deg_0.5mm_fatsat_psn
+
+DAG	mac_1180	NONE	0003	#dcms: 1	20260629	094535.823000	t1_tfl3d_ns_tra_850TI_8deg_0.5mm_fatsat_psn	t1_tfl3d_ns_tra_850TI_8deg_0.5mm_fatsat_psn
+
+DAG	mac_1180	NONE	0004	#dcms: 1	20260629	095551.168000	t1_tfl3d_ns_tra_850TI_8deg_0.5mm_fatsat_psn	t1_tfl3d_ns_tra_850TI_8deg_0.5mm_fatsat_psn
+
+DAG	mac_1180	NONE	0005	#dcms: 1	20260629	095551.172000	t1_tfl3d_ns_tra_850TI_8deg_0.5mm_fatsat_psn	t1_tfl3d_ns_tra_850TI_8deg_0.5mm_fatsat_psn
+
+DAG	mac_1180	NONE	0099	#dcms: 3	20260629	095552.709000	PhoenixZIPReport	PhoenixZIPReport
+
+DAG	mac_1180	NONE	1004	#dcms: 2	20260629	102802.348059	t1_tfl3d_ns_tra_850TI_8deg_0.5mm_fatsat_psn	MEAN_2_4_t1_tfl3d_ns_tra_850TI_8deg_0.5mm_fatsat_ps

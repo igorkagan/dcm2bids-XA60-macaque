@@ -1,0 +1,51 @@
+{
+    "dcm2niixOptions": "-b y -ba y -z y -f '%3s_%p'",
+    "search_method": "fnmatch",
+    "case_sensitive": true,
+    "descriptions": [
+        {
+            "id": "T1w_r1_norm",
+            "datatype": "anat",
+            "suffix": "T1w",
+            "custom_entities": "run-01_rec-norm",
+            "criteria": {
+                "SeriesNumber": 3,
+                "SeriesDescription": "t1_tfl3d_ns_tra_850TI_8deg_0.5mm_fatsat_psn",
+                "ImageTypeText": ["*", "*", "*", "NORM", "*"]
+            }
+        },
+        {
+            "id": "T1w_r1_orig",
+            "datatype": "anat",
+            "suffix": "T1w",
+            "custom_entities": "run-01_rec-orig",
+            "criteria": {
+                "SeriesNumber": 2,
+                "SeriesDescription": "t1_tfl3d_ns_tra_850TI_8deg_0.5mm_fatsat_psn",
+                "ImageTypeText": ["*", "*", "*", "*"]
+            }
+        },
+        {
+            "id": "T1w_r2_norm",
+            "datatype": "anat",
+            "suffix": "T1w",
+            "custom_entities": "run-02_rec-norm",
+            "criteria": {
+                "SeriesNumber": 5,
+                "SeriesDescription": "t1_tfl3d_ns_tra_850TI_8deg_0.5mm_fatsat_psn",
+                "ImageTypeText": ["*", "*", "*", "NORM", "*"]
+            }
+        },
+        {
+            "id": "T1w_r2_orig",
+            "datatype": "anat",
+            "suffix": "T1w",
+            "custom_entities": "run-02_rec-orig",
+            "criteria": {
+                "SeriesNumber": 4,
+                "SeriesDescription": "t1_tfl3d_ns_tra_850TI_8deg_0.5mm_fatsat_psn",
+                "ImageTypeText": ["*", "*", "*", "*"]
+            }
+        }
+    ]
+}
