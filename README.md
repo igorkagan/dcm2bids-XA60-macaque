@@ -44,20 +44,19 @@ From [`studies/mac_1180/SeriesInfos.txt`](studies/mac_1180/SeriesInfos.txt):
 | 4 | 1 | same | **run-02 rec-orig T1w** |
 | 5 | 1 | same (NORM reconstruction) | **run-02 rec-norm T1w** |
 | 99 | 3 | `PhoenixZIPReport` | exclude |
-| 1004 | 2 | `MEAN_2_4_t1_tfl3d_...` | exclude — mean of SN 2 and 4 |
+| 1004 | 2 | `MEAN_3_5_t1_tfl3d_...` | **acq-mean35 T1w** — mean of SN 3 and 5 |
 
 ### SN ≥ 1000 — Siemens on-scanner averages
 
-Any series number **starting with 1000** is a **scanner-computed average** of
-earlier primary series. The source series are in the `MEAN_X_Y` prefix of the
-secondary name (see `SeriesInfos.txt` column 8).
+Any series number **≥ 1000** is a **scanner-computed average** of earlier primary
+series. Source series are encoded in the `MEAN_X_Y` prefix of `SeriesDescription`
+(column 8 in `SeriesInfos.txt`; DICOM header is authoritative).
 
-- **SN 1004** = `MEAN_2_4` → pixel-wise mean of **SN 2 and SN 4** (the two
-  `rec-orig` volumes from run-01 and run-02).
-- Sidecars: `ImageType` contains `DERIVED` / `MEAN`.
-- **Never add these to `config.json`** — they land in `tmp_dcm2bids/` unpaired.
-
-Only primary series (SN 1–999, excluding localizer/99) are BIDS targets.
+- **SN 1004** = `MEAN_3_5` → pixel-wise mean of **SN 3 and SN 5** (the two
+  `rec-norm` volumes from run-01 and run-02).
+- Sidecars: `ImageTypeText` ends with `MEAN`; six-element list vs four/five for primaries.
+- **`config.json`** maps known `MEAN_X_Y` patterns to `acq-meanXY` in `anat/`;
+  any other 10xx `MEAN_*` series falls through to generic `acq-mean`.
 
 ### Acquisition parameters (from sidecars)
 
@@ -78,7 +77,8 @@ mac_1180/bids/sub-01/anat/
 ├── sub-01_rec-orig_run-01_T1w.{nii.gz,json}
 ├── sub-01_rec-norm_run-01_T1w.{nii.gz,json}
 ├── sub-01_rec-orig_run-02_T1w.{nii.gz,json}
-└── sub-01_rec-norm_run-02_T1w.{nii.gz,json}
+├── sub-01_rec-norm_run-02_T1w.{nii.gz,json}
+└── sub-01_acq-mean35_T1w.{nii.gz,json}
 ```
 
 ---
@@ -88,7 +88,7 @@ mac_1180/bids/sub-01/anat/
 | File | Purpose |
 |------|---------|
 | `env.sh` | Path roots + conda `bids` |
-| `config.json` | dcm2bids: 4× T1w (run × rec) |
+| `config.json` | dcm2bids: 4× T1w (run × rec) + 10xx MEAN composites |
 | `convert.sh` | DICOM → BIDS + validator + QC |
 | `dicom2nii.sh` | Single-series → NIfTI |
 | `dicom2nii_study.sh` | Whole study → NIfTI by modality |

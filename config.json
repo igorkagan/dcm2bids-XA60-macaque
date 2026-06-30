@@ -1,6 +1,6 @@
 {
     "dcm2niixOptions": "-b y -ba y -z y -f '%3s_%p'",
-    "search_method": "fnmatch",
+    "search_method": "re",
     "case_sensitive": true,
     "descriptions": [
         {
@@ -9,9 +9,9 @@
             "suffix": "T1w",
             "custom_entities": "run-01_rec-norm",
             "criteria": {
-                "SeriesNumber": 3,
-                "SeriesDescription": "t1_tfl3d_ns_tra_850TI_8deg_0.5mm_fatsat_psn",
-                "ImageTypeText": ["*", "*", "*", "NORM", "*"]
+                "SeriesNumber": "^3$",
+                "SeriesDescription": "^t1_tfl3d_ns_tra_850TI_8deg_0.5mm_fatsat_psn$",
+                "ImageTypeText": [".*", ".*", ".*", "NORM", ".*"]
             }
         },
         {
@@ -20,9 +20,9 @@
             "suffix": "T1w",
             "custom_entities": "run-01_rec-orig",
             "criteria": {
-                "SeriesNumber": 2,
-                "SeriesDescription": "t1_tfl3d_ns_tra_850TI_8deg_0.5mm_fatsat_psn",
-                "ImageTypeText": ["*", "*", "*", "*"]
+                "SeriesNumber": "^2$",
+                "SeriesDescription": "^t1_tfl3d_ns_tra_850TI_8deg_0.5mm_fatsat_psn$",
+                "ImageTypeText": [".*", ".*", ".*", ".*"]
             }
         },
         {
@@ -31,9 +31,9 @@
             "suffix": "T1w",
             "custom_entities": "run-02_rec-norm",
             "criteria": {
-                "SeriesNumber": 5,
-                "SeriesDescription": "t1_tfl3d_ns_tra_850TI_8deg_0.5mm_fatsat_psn",
-                "ImageTypeText": ["*", "*", "*", "NORM", "*"]
+                "SeriesNumber": "^5$",
+                "SeriesDescription": "^t1_tfl3d_ns_tra_850TI_8deg_0.5mm_fatsat_psn$",
+                "ImageTypeText": [".*", ".*", ".*", "NORM", ".*"]
             }
         },
         {
@@ -42,9 +42,86 @@
             "suffix": "T1w",
             "custom_entities": "run-02_rec-orig",
             "criteria": {
-                "SeriesNumber": 4,
-                "SeriesDescription": "t1_tfl3d_ns_tra_850TI_8deg_0.5mm_fatsat_psn",
-                "ImageTypeText": ["*", "*", "*", "*"]
+                "SeriesNumber": "^4$",
+                "SeriesDescription": "^t1_tfl3d_ns_tra_850TI_8deg_0.5mm_fatsat_psn$",
+                "ImageTypeText": [".*", ".*", ".*", ".*"]
+            }
+        },
+        {
+            "id": "T1w_mean23",
+            "datatype": "anat",
+            "suffix": "T1w",
+            "custom_entities": "acq-mean23",
+            "criteria": {
+                "SeriesNumber": "^10\\d+$",
+                "SeriesDescription": "^MEAN_2_3_",
+                "ImageTypeText": [".*", ".*", ".*", ".*", ".*", "MEAN"]
+            }
+        },
+        {
+            "id": "T1w_mean24",
+            "datatype": "anat",
+            "suffix": "T1w",
+            "custom_entities": "acq-mean24",
+            "criteria": {
+                "SeriesNumber": "^10\\d+$",
+                "SeriesDescription": "^MEAN_2_4_",
+                "ImageTypeText": [".*", ".*", ".*", ".*", ".*", "MEAN"]
+            }
+        },
+        {
+            "id": "T1w_mean25",
+            "datatype": "anat",
+            "suffix": "T1w",
+            "custom_entities": "acq-mean25",
+            "criteria": {
+                "SeriesNumber": "^10\\d+$",
+                "SeriesDescription": "^MEAN_2_5_",
+                "ImageTypeText": [".*", ".*", ".*", ".*", ".*", "MEAN"]
+            }
+        },
+        {
+            "id": "T1w_mean34",
+            "datatype": "anat",
+            "suffix": "T1w",
+            "custom_entities": "acq-mean34",
+            "criteria": {
+                "SeriesNumber": "^10\\d+$",
+                "SeriesDescription": "^MEAN_3_4_",
+                "ImageTypeText": [".*", ".*", ".*", ".*", ".*", "MEAN"]
+            }
+        },
+        {
+            "id": "T1w_mean35",
+            "datatype": "anat",
+            "suffix": "T1w",
+            "custom_entities": "acq-mean35",
+            "criteria": {
+                "SeriesNumber": "^10\\d+$",
+                "SeriesDescription": "^MEAN_3_5_",
+                "ImageTypeText": [".*", ".*", ".*", ".*", ".*", "MEAN"]
+            }
+        },
+        {
+            "id": "T1w_mean45",
+            "datatype": "anat",
+            "suffix": "T1w",
+            "custom_entities": "acq-mean45",
+            "criteria": {
+                "SeriesNumber": "^10\\d+$",
+                "SeriesDescription": "^MEAN_4_5_",
+                "ImageTypeText": [".*", ".*", ".*", ".*", ".*", "MEAN"]
+            }
+        },
+        {
+            "id": "T1w_mean",
+            "datatype": "anat",
+            "suffix": "T1w",
+            "custom_entities": "acq-mean",
+            "criteria": {
+                "SeriesNumber": "^10\\d+$",
+                "SeriesDescription": "^MEAN_(?!2_3_|2_4_|2_5_|3_4_|3_5_|4_5_)",
+                "ImageTypeText": [".*", ".*", ".*", ".*", ".*", "MEAN"]
             }
         }
     ]

@@ -17,16 +17,18 @@ See [`studies/mac_1180/SeriesInfos.txt`](studies/mac_1180/SeriesInfos.txt).
 | 3 | `run-01_rec-norm_T1w` |
 | 4 | `run-02_rec-orig_T1w` |
 | 5 | `run-02_rec-norm_T1w` |
+| 1004 | `acq-mean35_T1w` (MEAN of SN 3 + 5) |
 
-Excluded: SN 1 (localizer), SN 99 (PhoenixZIP), SN ≥ 1000 (scanner averages).
+Excluded: SN 1 (localizer), SN 99 (PhoenixZIP).
 
 ### SN ≥ 1000 rule
 
 Siemens exports on-scanner **MEAN** composites with series numbers ≥ 1000.
-SN **1004** = `MEAN_2_4` = average of SN **2** and **4** (both rec-orig).
-Do not describe in `config.json`; they are not primary acquisitions.
-
-Future averages (e.g. `MEAN_2_3`, `MEAN_2_5`) follow the same exclusion rule.
+SN **1004** DICOM header = `MEAN_3_5` = average of SN **3** and **5** (both
+rec-norm). `config.json` uses `search_method: re` so known `MEAN_X_Y` patterns
+map to `acq-meanXY`; unmatched 10xx means get generic `acq-mean`. Add a new
+description block when a novel `MEAN_A_B` pair appears and update the catch-all
+negative lookahead if needed.
 
 ## config.json matching
 
