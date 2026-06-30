@@ -23,8 +23,14 @@ Sibling repo: [dcm2bids-XA60-human](https://github.com/igorkagan/dcm2bids-XA60-h
 ```bash
 cd /mnt/e/Dropbox/Sources/Repos/dcm2bids-XA60-macaque
 source env.sh
-cp studies/mac_1180.env.example studies/mac_1180.env
-source studies/mac_1180.env
+./convert_auto.sh /home/ikagan/mri/mac_1180/dicom 01
+# writes BIDS to ../bids by default; config saved in bids/code/
+```
+
+Manual config path (legacy):
+
+```bash
+source env.sh && source studies/mac_1180.env
 ./convert.sh 01
 ```
 
@@ -88,8 +94,10 @@ mac_1180/bids/sub-01/anat/
 | File | Purpose |
 |------|---------|
 | `env.sh` | Path roots + conda `bids` |
-| `config.json` | dcm2bids: 4× T1w (run × rec) + 10xx MEAN composites |
-| `convert.sh` | DICOM → BIDS + validator + QC |
+| `convert_auto.sh` | **DICOM → BIDS, auto config** (recommended) |
+| `gen_config.py` | Sidecar → config.json (used by convert_auto) |
+| `config.json` | Manual dcm2bids config (legacy / reference) |
+| `convert.sh` | DICOM → BIDS using manual `config.json` |
 | `dicom2nii.sh` | Single-series → NIfTI |
 | `dicom2nii_study.sh` | Whole study → NIfTI by modality |
 | `studies/mac_1180/` | SeriesInfos.txt reference |

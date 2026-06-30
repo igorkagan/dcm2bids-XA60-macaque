@@ -32,6 +32,10 @@ negative lookahead if needed.
 
 ## config.json matching
 
+**Automatic:** `./convert_auto.sh <dicom_dir>` generates config from sidecars — no manual editing.
+
+**Manual fallback:** [`config.json`](config.json) in repo root (used by `convert.sh`).
+
 Unlike human (one orig/norm pair per contrast), mac_1180 has **two repeat runs**
 with identical `SeriesDescription`. Criteria require **SeriesNumber** plus
 position-aware `ImageTypeText`:
